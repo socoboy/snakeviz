@@ -36,7 +36,7 @@ def table_rows(stats):
 
         rows.append(
             [[calls, v[1]], tot_time, tot_time_per,
-             cum_time, cum_time_per, flf, name])
+             cum_time, cum_time_per, name, flf])
 
     return rows
 
