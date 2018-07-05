@@ -18,7 +18,7 @@ try:
 except ImportError:
     from urllib import quote_plus
 
-from . import version
+from snakeviz import version
 
 
 # As seen in IPython:
@@ -109,7 +109,7 @@ def main(argv=None):
     # Go ahead and import the tornado app and start it; we do an inline import
     # here to avoid the extra overhead when just running the cli for --help and
     # the like
-    from .main import app
+    from snakeviz.main import app
     import tornado.ioloop
 
     # As seen in IPython:

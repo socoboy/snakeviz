@@ -1,2 +1,2 @@
-from .version import __version__
-from .ipymagic import *
+from snakeviz.version import __version__
+from snakeviz.ipymagic import *
