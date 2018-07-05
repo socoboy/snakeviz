@@ -17,7 +17,11 @@ def table_rows(stats):
     """
     rows = []
 
+    ignores = ["profiling.py"]
     for k, v in stats.stats.items():
+        if match_ignores(k, v, ignores):
+            continue
+
         flf = xhtml_escape('{0}:{1}({2})'.format(
             os.path.basename(k[0]), k[1], k[2]))
         name = '{0}:{1}({2})'.format(*k)
@@ -39,6 +43,13 @@ def table_rows(stats):
              cum_time, cum_time_per, name, flf])
 
     return rows
+
+
+def match_ignores(key, value, ignores):
+    for ignore in ignores:
+        if key[0].find(ignore) != -1:
+            return True
+    return False
 
 
 def json_stats(stats):
